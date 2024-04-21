@@ -1,5 +1,8 @@
 version: '3.8'
 
+volumes:
+  db-data:
+
 services:
   web:
     build: .
@@ -9,3 +12,13 @@ services:
       - .:/docker-Rails-practice
     tty: true
     stdin_open: true
+    depends_on:
+      - db
+    links:
+      - db
+  db:
+    image: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
