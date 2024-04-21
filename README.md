@@ -16,3 +16,15 @@ docker compose up -d
 ```
 docker compose exec web bash
 ```
+
+## Rails のプロジェクトを作成する(初回のみ)
+
+// (コンテナ内で実行する)
+
+```
+rails new . --force --database=postgresql --skip-bundle
+```
+
+- --force: 強制的に実行
+- --database=postgresql: 使用したい database を指定する。デフォルトは sqlite
+- --skip-bundle: コンテナを build した時に bundle が実行されるので、スキップする
