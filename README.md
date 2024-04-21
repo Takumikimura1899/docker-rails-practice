@@ -34,3 +34,19 @@ rails new . --force --database=postgresql --skip-bundle
 ```
 rails -s -p 3000 -b 0.0.0.0
 ```
+
+## データベース作成
+
+```
+rails db:create
+```
+
+## アプリの基本的な機能を一括作成
+
+```
+rails g scaffold product name:string price:integer vendor:string
+```
+
+- `rails g scaffold <model名> <database-schema>` で model やらルーティングやらが一気に作成される。
+- `rails db:migrate`を実行。
+- `http://localhost:3000/products`にアクセスすると簡単な CRUD アプリが実装されている
