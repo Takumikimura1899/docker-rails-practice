@@ -10,6 +10,8 @@ services:
       - 3000:3000
     volumes:
       - .:/docker-Rails-practice
+    environment:
+      POSTGRES_PASSWORD: password
     tty: true
     stdin_open: true
     depends_on:
@@ -22,3 +24,5 @@ services:
       - db-data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
