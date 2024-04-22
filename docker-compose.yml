@@ -12,6 +12,8 @@ services:
       - .:/docker-Rails-practice
     environment:
       POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
     tty: true
     stdin_open: true
     depends_on:
@@ -23,7 +25,4 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
     environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_PASSWORD: password
-      POSTGRES_USER: postgres
-      POSTGRES_DB: postgres
