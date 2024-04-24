@@ -12,9 +12,7 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
-          POSTGRES_DB: docker_Rails_practice_test
 
     env:
       RAILS_ENV: test
@@ -34,7 +32,6 @@ jobs:
 
       - name: Create and migrate database
         run: |
-          cp config/database.yml.ci config/database.yml
           bundle exec rails db:create
           bundle exec rails db:migrate
 
